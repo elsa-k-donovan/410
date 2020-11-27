@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@300&display=swap');
+
+.canvas-interactive-wrapper, h1, .canvas-meme{
+    /* position: relative; */
+    /* height: 300px; */
+    text-align: center;
+}
+
+.canvas-interactive-wrapper #canvas-interactive {
+    background-size: cover;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.canvas-interactive-wrapper .cta-wrapper {
+    margin-top: 30px;
+}
+
+h1{
+  font-family: 'Spartan', sans-serif;
+  margin-top: 10%;
+  margin-right: auto;
+  position: relative;
+  display: inline-block;
+  border: solid 1px transparent;
+  z-index: 1;
+  color: #222;
+  transition: border .3s;
+}
+
+.canvas-interactive-wrapper .cta-wrapper a{
+    font-family: 'Spartan', sans-serif;
+    position: relative;
+    display: inline-block;
+    padding: 8px 10px;
+    border: solid 1px transparent;
+    margin-right: auto;
+    z-index: 1;
+    text-decoration: none;
+    color: #222;
+    transition: border .3s;
+    border-radius: 2px;
+    background-color: rgba(201, 198, 205, 0.9));
+}
+
+
+
+.canvas-interactive-wrapper .cta-wrapper a:hover, a:active{
+  border-color: #222;
+}
+
+.canvas-interactive-wrapper .cta-wrapper a.active {
+    border-color: #535157;
+}
+
+.canvas-interactive-wrapper .cta-wrapper a.active:hover {
+  border-color: #222;
+}
+
+.canvas-meme {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #222;
+  position: relative;
+  display: block;
+  height: 500px;
+  width: 500px;
+  max-height: 50%;
+  max-width: 50%;
+  min-height: 20%;
+  min-width: 20%;
+}
