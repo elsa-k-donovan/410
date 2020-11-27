@@ -2,6 +2,16 @@ window.onload = function(){
 
   console.log("Script loaded");
 
+  var canvas = document.getElementById("canvas-meme");
+  var context = canvas.getContext("2d");
+
+  const img = new Image();
+  img.src = "Img/1.jpg";
+  img.onload = () => {
+    context.drawImage(img, 0, 0);
+  }
+
+
   select("blue-state");
   select("red-state");
   select("default-state");
@@ -61,16 +71,4 @@ window.onload = function(){
         }
       });
   }
-
-
-  const myCanvas = document.getElementById("canvas-meme");
-  const myContext = myCanvas.getContext("2d");
-  const img = new Image();
-  img.src = "Img/1.jpg";
-  img.onload = () => {
-    context.drawImage(img, 0, 0)
-  }
-
-
-
 }
