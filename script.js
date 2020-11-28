@@ -1,3 +1,5 @@
+
+
 window.onload = function(){
 
   console.log("Script loaded");
@@ -5,11 +7,41 @@ window.onload = function(){
   var canvas = document.getElementById("canvas-meme");
   var context = canvas.getContext("2d");
 
+
   const img = new Image();
   img.src = "Img/1.jpg";
   img.onload = () => {
     context.drawImage(img, 0, 0);
   }
+
+
+//Added after to resize image to correct size
+
+img.onload = function () {
+
+    // set size proportional to image
+    canvas.height = canvas.width * (img.height / img.width);
+
+    // step 1 - resize to 50%
+    var oc = document.createElement('canvas'),
+        octx = oc.getContext('2d');
+
+    oc.width = img.width * 0.5;
+    oc.height = img.height * 0.5;
+    octx.drawImage(img, 0, 0, oc.width, oc.height);
+
+    // step 2
+    octx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5);
+
+    // step 3, resize to final size
+    context.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5,
+    0, 0, canvas.width, canvas.height);
+}//Resizing image
+
+
+
+
+
 
 
   select("blue-state");
@@ -71,4 +103,17 @@ window.onload = function(){
         }
       });
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
