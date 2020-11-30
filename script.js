@@ -2,7 +2,14 @@
 
 window.onload = function(){
 
+
+
   console.log("Script loaded");
+
+var conservativeImgNum = 7;
+var liberalImgNum = 5;
+
+// directResize(conservativeImgNum, liberalImgNum);
 
   // var myCanvas = document.getElementById("canvas-meme");
   // var context = myCanvas.getContext("2d");
@@ -43,11 +50,29 @@ window.onload = function(){
 
 // img.src = "Img/Liberal/71861457_136697787684472_8301576268772540416_n.jpg";
 
+//Loading Random Image
+
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+// document.getElementById("default-state").onclick = function directResize(conservativeImgNum, liberalImgNum){
 
 //New resizing algorithm without quality loss
-function directResize() {
+function directResize(conservativeImgNum, liberalImgNum) {
 img = new Image();
-    img.src = "Img/Liberal/72202488_137507804270137_6306651693077495808_n.jpg";
+
+var randomVal = Math.round(Math.random());
+if (randomVal == 0){
+  pictureNum = getRandomInt(liberalImgNum);
+  img.src = "Img/Liberal/" + pictureNum + ".jpg";
+  //load from liberal
+}
+else if(randomVal == 1){
+  img.src = "Img/Conservative/" + getRandomInt(conservativeImgNum) + ".png";
+}
+    // img.src = "Img/Liberal/72202488_137507804270137_6306651693077495808_n.jpg";
 
     img.onload = () => {
 
@@ -122,7 +147,7 @@ img = new Image();
 // }
 //
 // stepByStepResize();
-directResize();
+
 // resizingCanvas();
 
 
@@ -181,7 +206,7 @@ directResize();
         else if(buttonId === "default-state"){
           console.log("Generate");
           granimInstance.changeState("default-state");
-
+          directResize(conservativeImgNum, liberalImgNum);
         }
         else if(buttonId === "red-state"){
           console.log("Right Clicked");
