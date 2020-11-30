@@ -2,68 +2,40 @@
 
 window.onload = function(){
 
-
-
-  console.log("Script loaded");
-
 var conservativeImgNum = 7;
 var liberalImgNum = 5;
 
-// directResize(conservativeImgNum, liberalImgNum);
 
-  // var myCanvas = document.getElementById("canvas-meme");
-  // var context = myCanvas.getContext("2d");
-  // var img = new Image();
+randomVal = Math.round(Math.random());
+console.log("Random Value: " + randomVal);
+directResize(randomVal, conservativeImgNum, liberalImgNum);
 
-
-  // img.onload = () => {
-  //   context.drawImage(img, 0, 0);
-  // }
+  selectDefault("default-state");
+  selectBlue("blue-state");
+  selectRed("red-state");
 
 
-//Added after to resize image to correct size
-
-// img.onload = function () {
-//
-//     // set size proportional to image
-//     myCanvas.height = myCanvas.width * (img.height / img.width);
-//
-//     // step 1 - resize to 50%
-//     var oc = document.createElement('canvas'),
-//         octx = oc.getContext('2d');
-//
-//     oc.width = img.width * 0.5;
-//     oc.height = img.height * 0.5;
-//     octx.drawImage(img, 0, 0, oc.width, oc.height);
-//
-//     // step 2
-//     octx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5);
-//
-//     // step 3, resize to final size
-//     // context.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5,
-//     // 0, 0, canvas.width, canvas.height);
-//
-//     context.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5,
-//     0, 0, myCanvas.width, myCanvas.height);
-//
-// }//Resizing image
-
-// img.src = "Img/Liberal/71861457_136697787684472_8301576268772540416_n.jpg";
-
-//Loading Random Image
 
 
+
+
+//generate Mem
+  //then select either side
+  //no other option available
+//repeat once generate meme is clicked
+
+
+//Function to generate random interger in a range
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-// document.getElementById("default-state").onclick = function directResize(conservativeImgNum, liberalImgNum){
 
 //New resizing algorithm without quality loss
-function directResize(conservativeImgNum, liberalImgNum) {
+function directResize(randomVal, conservativeImgNum, liberalImgNum) {
 img = new Image();
 
-var randomVal = Math.round(Math.random());
+
 if (randomVal == 0){
   pictureNum = getRandomInt(liberalImgNum);
   img.src = "Img/Liberal/" + pictureNum + ".jpg";
@@ -103,60 +75,6 @@ else if(randomVal == 1){
 		} // End of the img.onLoad
 }
 
-// function resizingCanvas() {
-//  		img = new Image();
-//     img.src = "Img/Liberal/71861457_136697787684472_8301576268772540416_n.jpg";
-//
-//     img.onload = () => {
-//
-// 		// Now for the efficient loop solution
-// 		var resizingCanvas = document.getElementById("loopcanvas");
-// 		var resizingCanvasContext = resizingCanvas.getContext("2d");
-//
-//     resizingCanvas.width = img.width;
-//     resizingCanvas.height = img.height;
-//
-//     // Draw the image on the temp resizing canvas
-//     resizingCanvasContext.drawImage(img, 0, 0, resizingCanvas.width, resizingCanvas.height);
-//
-// 		var width = 200;
-// 		var height = width * (img.height / img.width);
-//
-// 		var curWidth = img.width;
-// 		var curHeight = img.height;
-//
-//     // Quickly reduce the dize by 50% each time in few itterations until the size is less then
-//     // 2x time the target size - the motivation for it, is to reduce the aliasing that would have been
-//     // created with direct reduction of very big image to small image
-//      while (curWidth * 0.5 > width) {
-//      		// Reduce the resizing canvas by half and refresh the image
-//         halfWidth = Math.floor(curWidth * 0.5);
-//         halfHeight = Math.floor(curHeight * 0.5);
-//
-//         resizingCanvasContext.drawImage(resizingCanvas, 0, 0, curWidth, curHeight, 0, 0, halfWidth, halfHeight);
-//
-// 		  	curWidth = halfWidth
-//    		  curHeight = halfHeight;
-//      }
-//
-// 		// Now do fineal resize for the resizingCanvas to meet the dimension requirments
-// 		resizingCanvasContext.drawImage(resizingCanvas, 0, 0, curWidth, curHeight, 0, 0, width, height);
-//
-// 	  // Now use target canvas, to hold the final image, and output image from it
-// 	} // End of the img.onLoad
-// }
-//
-// stepByStepResize();
-
-// resizingCanvas();
-
-
-
-////////
-
-  select("blue-state");
-  select("red-state");
-  select("default-state");
 
   var granimInstance = new Granim({
     element: '#canvas-interactive',
@@ -192,29 +110,119 @@ else if(randomVal == 1){
     }
 });
 
+// ////
+//
+//   function select(buttonId){
+//       var select = document.getElementById(buttonId);
+//
+//       //Random value, if 0 then load liberal if 1 load conservative image
+//       var randomVal = Math.round(Math.random());
+//       console.log("Random Value: " + randomVal)
+//
+//       select.addEventListener("click", function(){
+//
+//
+//         if(buttonId === "blue-state"){
+//           granimInstance.changeState("blue-state");
+//
+//           if(randomVal = 1){
+//             console.log("right");
+//           }
+//         }
+//         else if(buttonId === "default-state"){
+//           console.log("Generate");
+//           granimInstance.changeState("default-state");
+//
+//           directResize(randomVal, conservativeImgNum, liberalImgNum);
+//         }
+//         else if(buttonId === "red-state"){
+//           granimInstance.changeState("red-state");
+//           if(randomVal = 0){
+//             console.log("left");
+//           }
+//         }
+//       });
+//   }
+//
+//////
 
+//Random value, if 0 then load liberal if 1 load conservative image
+  clicked = false;
 
-
-  function select(buttonId){
-      var select = document.getElementById(buttonId);
-
-      select.addEventListener("click", function(){
-        if(buttonId === "blue-state"){
-          console.log("Left Clicked");
+  function selectBlue(buttonId){
+    var select = document.getElementById(buttonId);
+    select.addEventListener("click", function(){
+        if(randomVal === 1 && clicked === false){
           granimInstance.changeState("blue-state");
+          console.log("Random val is: " + randomVal + " is conservative");
+          onTrue();
+          offTrue();
+          clicked = true;
         }
-        else if(buttonId === "default-state"){
-          console.log("Generate");
-          granimInstance.changeState("default-state");
-          directResize(conservativeImgNum, liberalImgNum);
-        }
-        else if(buttonId === "red-state"){
-          console.log("Right Clicked");
+        else if(clicked === false){
+          onFalse();
+          offFalse();
+          clicked = true;
           granimInstance.changeState("red-state");
         }
-      });
+      })
+    }
+
+  function selectRed(buttonId){
+        document.getElementById("blue-state").disabled = false;
+        var select = document.getElementById(buttonId);
+        select.addEventListener("click", function(){
+            if(randomVal === 0 && clicked === false){
+              granimInstance.changeState("red-state");
+              console.log("Random val is: " + randomVal + " is liberal");
+              onTrue();
+              offTrue();
+              clicked = true;
+            }
+            else if(clicked === false) {
+              onFalse();
+              offFalse();
+              clicked = true;
+              granimInstance.changeState("blue-state");
+            }
+          })
   }
 
+  function selectDefault(buttonId){
+        var select = document.getElementById(buttonId);
+        select.addEventListener("click", function(){
+            granimInstance.changeState("default-state");
+            randomVal = Math.round(Math.random());
+            console.log("Random Value: " + randomVal);
+            directResize(randomVal, conservativeImgNum, liberalImgNum);
+            clicked = false;
+          })
+  }
+
+
+  function onTrue() {
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("text1").style.display = "block"
+  }
+
+  function onFalse() {
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("text2").style.display = "block"
+  }
+
+  function offTrue() {
+    setTimeout(function(){
+      document.getElementById("overlay").style.display = "none";
+      document.getElementById("text1").style.display = "none"}
+    , 1000)
+  }
+
+  function offFalse() {
+    setTimeout(function(){
+      document.getElementById("overlay").style.display = "none";
+      document.getElementById("text2").style.display = "none"}
+    , 1000)
+  }
 
 
 
