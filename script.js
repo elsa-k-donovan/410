@@ -2,8 +2,8 @@
 
 window.onload = function(){
 
-var conservativeImgNum = 7;
-var liberalImgNum = 5;
+var conservativeImgNum = 16;
+var liberalImgNum = 9;
 
 
 randomVal = Math.round(Math.random());
@@ -37,8 +37,7 @@ img = new Image();
 
 
 if (randomVal == 0){
-  pictureNum = getRandomInt(liberalImgNum);
-  img.src = "Img/Liberal/" + pictureNum + ".jpg";
+  img.src = "Img/Liberal/" + getRandomInt(liberalImgNum) + ".png";
   //load from liberal
 }
 else if(randomVal == 1){
@@ -110,41 +109,7 @@ else if(randomVal == 1){
     }
 });
 
-// ////
-//
-//   function select(buttonId){
-//       var select = document.getElementById(buttonId);
-//
-//       //Random value, if 0 then load liberal if 1 load conservative image
-//       var randomVal = Math.round(Math.random());
-//       console.log("Random Value: " + randomVal)
-//
-//       select.addEventListener("click", function(){
-//
-//
-//         if(buttonId === "blue-state"){
-//           granimInstance.changeState("blue-state");
-//
-//           if(randomVal = 1){
-//             console.log("right");
-//           }
-//         }
-//         else if(buttonId === "default-state"){
-//           console.log("Generate");
-//           granimInstance.changeState("default-state");
-//
-//           directResize(randomVal, conservativeImgNum, liberalImgNum);
-//         }
-//         else if(buttonId === "red-state"){
-//           granimInstance.changeState("red-state");
-//           if(randomVal = 0){
-//             console.log("left");
-//           }
-//         }
-//       });
-//   }
-//
-//////
+
 
 //Random value, if 0 then load liberal if 1 load conservative image
   clicked = false;
