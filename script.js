@@ -15,16 +15,6 @@ directResize(randomVal, conservativeImgNum, liberalImgNum);
   selectRed("red-state");
 
 
-
-
-
-
-//generate Mem
-  //then select either side
-  //no other option available
-//repeat once generate meme is clicked
-
-
 //Function to generate random interger in a range
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
