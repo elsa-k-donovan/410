@@ -3,7 +3,7 @@
 window.onload = function(){
 
 var conservativeImgNum = 16;
-var liberalImgNum = 9;
+var liberalImgNum = 8;
 
 
 randomVal = Math.round(Math.random());
