@@ -38,7 +38,6 @@ html, body{
 
 
 .canvas-interactive-wrapper  .cta-wrapper{
-  padding-left: 42px;
     margin-top: 30px;
 }
 
@@ -59,7 +58,7 @@ html, body{
     font-family: 'Spartan', sans-serif;
     position: relative;
     display: inline-block;
-    padding: 8px 10px;
+    padding: 10px 15px;
     border: solid 1px transparent;
     margin-right: auto;
     margin-left: auto;
