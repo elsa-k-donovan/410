@@ -42,7 +42,7 @@ html, body{
 }
 
 .canvas-interactive-wrapper h1{
-  font-family: 'Spartan', sans-serif;
+  /* font-family: 'Spartan', sans-serif; */
   margin-right: auto;
   margin-top: 6%;
   margin-bottom: 2%;
