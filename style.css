@@ -109,11 +109,17 @@ html, body{
 }
 
 #text1{
+
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
   display: none;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
-  font-size: 40px;
+  font-size: 26px;
+  font-size: 3vw;
   color: white;
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
@@ -121,19 +127,19 @@ html, body{
 }
 
 #text2{
+
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
   display: none;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
-  font-size: 40px;
+  font-size: 26px;
+  font-size: 3vw;
   color: white;
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
   font-family: 'Spartan', sans-serif;
 }
-
-/* .canvas-interactive-wrapper .canvas-meme: after{
-  content: "";
-  display: block;
-  padding-bottom: 100%;
-} */
